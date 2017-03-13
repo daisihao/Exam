@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.ScoreDAO">
+	<!-- 查找学生的所有成绩 -->
+	<select id="selectList" parameterType="map" resultType="Score">
+		SELECT
+		SCORE_ID scoreID,
+		STUDENT_ID studentID,
+		PAPER_ID paperID,
+		SUB_ID subID,
+		SCORE score,
+		TEACHER_ID teacherID,
+		PAPER_DATE paperDate,
+		SCORE_BAK1 scoreBak1,
+		SCORE_BAK2 scoreBak2,
+		SCORE_BAK3 scoreBak3
+		FROM
+		T_SCORE
+		<where>
+			<if test="studentID!=null">
+				STUDENT_ID=#{studentID}
+			</if>
+			<if test="subID!=null">
+				AND SUB_ID=#{subID}
+			</if>
+			<if test="teacherID!=null">
+				AND TEACHER_ID=#{teacherID}
+			</if>
+		</where>
+	</select>
+</mapper>

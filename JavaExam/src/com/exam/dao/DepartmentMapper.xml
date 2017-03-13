@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.DepartmentDAO">
+	<select id="selectOne" parameterType="map" resultType="Department">
+		SELECT
+		DEPARTMENT_ID departmentID,
+		DEPARTMENT_NAME departmetnName,
+		DEPARTMENT_ADDRESS departAddress,
+		DEPARTMENT_MGR departmentMgr,
+		DEPARTMENT_TELPHONE departmentTelephone,
+		DEPARTMENT_BAK1 departmentBak1,
+		DEPARTMENT_BAK2 departmentBak2,
+		DEPARTMENT_BAK3 departmentBak3
+		FROM
+		T_DEPARTMENT
+		WHERE DEPARTMENT_ID=#{departmentID} 
+	</select>
+</mapper>

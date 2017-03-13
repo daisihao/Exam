@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.PaperDAO">
+	<insert id="insertOne" parameterType="Paper"  useGeneratedKeys="true" keyProperty="paperID">
+		insert into t_paper values(#{paperID},#{paperNO},#{paperBeginDate},#{paperBeginTime},#{paperTotalScore},#{paperTotalTime},#{paperDifficulty},#{paperType},#{paperDeclareRule},#{paperStatus},#{teacherID},#{paperCreateTime},#{paperBak1},#{paperBak2},#{paperBak3})
+	</insert>
+
+	<select id="selectAll" resultType="Paper" parameterType="map">
+		SELECT
+			PAPER_ID paperID,
+			PAPER_NO paperNO,
+			PAPER_BEGIN_DATE paperBeginDate,
+			PAPER_BEGIN_TIME paperBeginTime,
+			PAPER_TOTAL_SCORE paperTotalScore,
+			PAPER_TOTAL_TIME paperTotalTime,
+			PAPER_DIFFICULTY paperDifficulty,
+			PAPER_TYPE paperType,
+			PAPER_DECLARE_RULE paperDeclareRule,
+			PAPER_STATUS paperStatus,
+			TEACHER_ID teacherID,
+			PAPER_CREATE_TIME paperCreateTime,
+			PAPER_BAK1 paperBak1,
+			PAPER_BAK2 paperBak2,
+			PAPER_BAK3 paperBak3
+			FROM
+			t_paper
+			<where>
+				<if test="paperID!=null">
+					PAPER_ID=#{paperID}
+				</if>
+				<if test="paperBak1!=null">
+					AND PAPER_BAK1=#{paperBak1}
+				</if>
+			</where>
+			order by PAPER_BEGIN_DATE desc
+	</select>
+	
+	<select id="selectSomePaper" parameterType="Map" resultType="Paper">
+		SELECT
+			PAPER_ID paperID,
+			PAPER_NO paperNO,
+			PAPER_BEGIN_DATE paperBeginDate,
+			PAPER_BEGIN_TIME paperBeginTime,
+			PAPER_TOTAL_SCORE paperTotalScore,
+			PAPER_TOTAL_TIME paperTotalTime,
+			PAPER_DIFFICULTY paperDifficulty,
+			PAPER_TYPE paperType,
+			PAPER_DECLARE_RULE paperDeclareRule,
+			PAPER_STATUS paperStatus,
+			TEACHER_ID teacherID,
+			PAPER_CREATE_TIME paperCreateTime,
+			PAPER_BAK1 paperBak1,
+			PAPER_BAK2 paperBak2,
+			PAPER_BAK3 paperBak3
+			FROM
+			T_PAPER
+			<where>
+				<if test="paperID!=null">
+					PAPER_ID=#{paperID}
+				</if>
+				<if test="paperBak1!=null">
+					AND PAPER_BAK1=#{paperBak1}
+				</if>
+				<if test="paperNO!=null">
+					ADN PAPER_NO=#{paperNO}
+				</if>
+			</where>
+			order by PAPER_BEGIN_DATE desc,PAPER_BAK2 LIMIT 0,10
+	</select>
+	
+	<select id="selectPaperByNO" parameterType="Map" resultType="Paper">
+	SELECT
+			PAPER_ID paperID,
+			PAPER_NO paperNO,
+			PAPER_BEGIN_DATE paperBeginDate,
+			PAPER_BEGIN_TIME paperBeginTime,
+			PAPER_TOTAL_SCORE paperTotalScore,
+			PAPER_TOTAL_TIME paperTotalTime,
+			PAPER_DIFFICULTY paperDifficulty,
+			PAPER_TYPE paperType,
+			PAPER_DECLARE_RULE paperDeclareRule,
+			PAPER_STATUS paperStatus,
+			TEACHER_ID teacherID,
+			PAPER_CREATE_TIME paperCreateTime,
+			PAPER_BAK1 paperBak1,
+			PAPER_BAK2 paperBak2,
+			PAPER_BAK3 paperBak3
+			FROM
+			T_PAPER
+			WHERE PAPER_NO=#{paperNO}
+	</select>
+</mapper>

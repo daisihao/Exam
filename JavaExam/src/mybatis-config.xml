@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.exam.entity.Question" alias="Question"/>
+		<typeAlias type="com.exam.entity.Card" alias="Card"/>
+		<typeAlias type="com.exam.entity.CardDetail" alias="CardDetail"/>
+		<typeAlias type="com.exam.entity.Department" alias="Department"/>
+		<typeAlias type="com.exam.entity.Examinee" alias="Examinee"/>
+		<typeAlias type="com.exam.entity.Major" alias="Major"/>
+		<typeAlias type="com.exam.entity.Menu" alias="Menu"/>
+		<typeAlias type="com.exam.entity.Paper" alias="Paper"/>
+		<typeAlias type="com.exam.entity.PaperDetail" alias="PaperDetail"/>
+		<typeAlias type="com.exam.entity.QuestionType" alias="QuestionType"/>
+		<typeAlias type="com.exam.entity.Role" alias="Role"/>
+		<typeAlias type="com.exam.entity.RoleMenu" alias="RoleMenu"/>
+		<typeAlias type="com.exam.entity.Score" alias="Score"/>
+		<typeAlias type="com.exam.entity.Student" alias="Student"/>
+		<typeAlias type="com.exam.entity.Subjectinfo" alias="Subjectinfo"/>
+		<typeAlias type="com.exam.entity.Teacher" alias="Teacher"/>
+		<typeAlias type="com.exam.entity.Term" alias="Term"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="com/exam/dao/QuestionMapper.xml"/>
+		<mapper resource="com/exam/dao/CardMapper.xml"/>
+		<mapper resource="com/exam/dao/CardDetailMapper.xml"/>
+		<mapper resource="com/exam/dao/DepartmentMapper.xml"/>
+		<mapper resource="com/exam/dao/ExamineeMapper.xml"/>
+		<mapper resource="com/exam/dao/MajorMapper.xml"/>
+		<mapper resource="com/exam/dao/MenuMapper.xml"/>
+		<mapper resource="com/exam/dao/PaperMapper.xml"/>
+		<mapper resource="com/exam/dao/PaperDetailMapper.xml"/>
+		<mapper resource="com/exam/dao/QuestionTypeMapper.xml"/>
+		<mapper resource="com/exam/dao/RoleMapper.xml"/>
+		<mapper resource="com/exam/dao/RoleMenuMapper.xml"/>
+		<mapper resource="com/exam/dao/ScoreMapper.xml"/>
+		<mapper resource="com/exam/dao/StudentMapper.xml"/>
+		<mapper resource="com/exam/dao/SubjectinfoMapper.xml"/>
+		<mapper resource="com/exam/dao/TeacherMapper.xml"/>
+		<mapper resource="com/exam/dao/TermMapper.xml"/>
+	</mappers>
+</configuration>

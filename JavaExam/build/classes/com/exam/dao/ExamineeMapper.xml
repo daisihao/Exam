@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.ExamineeDAO">
+	<select id="selectOne" parameterType="map" resultType="Examinee">
+		SELECT
+		EXAMINEE_ID examineeID,
+		STUDENT_ID studentID,
+		PAPER_ID paperID
+		FROM
+		T_EXAMINEE
+		WHERE EXAMINEE_ID=#{examineeID}
+	</select>
+</mapper>

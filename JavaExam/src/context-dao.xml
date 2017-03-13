@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+	<bean id="cardDAOImpl" class="com.exam.dao.impl.CardDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="cardDetailDAOImpl" class="com.exam.dao.impl.CardDetailDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="departmentDAOImpl" class="com.exam.dao.impl.DepartmentDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="examineeDAOImpl" class="com.exam.dao.impl.ExamineeDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="majorDAOImpl" class="com.exam.dao.impl.MajorDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="menuDAOImpl" class="com.exam.dao.impl.MenuDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="paperDAOImpl" class="com.exam.dao.impl.PaperDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="paperDetailDAOImpl" class="com.exam.dao.impl.PaperDetailDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="questionDAOImpl" class="com.exam.dao.impl.QuestionDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="questionTypeDAOImpl" class="com.exam.dao.impl.QuestionTypeDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="roleDAOImpl" class="com.exam.dao.impl.RoleDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="roleMenuDAOImpl" class="com.exam.dao.impl.RoleMenuDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="scoreDAOImpl" class="com.exam.dao.impl.ScoreDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="studentDAOImpl" class="com.exam.dao.impl.StudentDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="subjectinfoDAOImpl" class="com.exam.dao.impl.SubjectinfoDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="teacherDAOImpl" class="com.exam.dao.impl.TeacherDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="termDAOImpl" class="com.exam.dao.impl.TermDAOImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	
+</beans>

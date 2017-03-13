@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.TeacherDAO">
+
+	<select id="selectTeacher" parameterType="Map" resultType="Teacher">
+		select TEACHER_ID teacherID,
+				TEACHER_NAME teacherName,
+				TEACHER_ACCOUNT teacherAccount,
+				TEACHER_PWD teacherPwd,
+				TEACHER_SEX teacherSex,
+				TEACHER_MAJOR teacherMajor,
+				TEACHER_DEPATMENT teacherDepatment,
+				TEACHER_PHONE teacherPhone,
+				TEACHER_EMAIL teacherEmail,
+				TEACHER_ROLE teacherRole,
+				TEACHER_PIC teacherPic,
+				TEACHER_IS_DELETE teacherIsDelete,
+				TEACHER_BAK1 teacherBak1,
+				TEACHER_BAK2 teacherBak2,
+				TEACHER_BAK3 teacherBak3 
+		from t_teacher
+		<where>
+			<if test="teacherID!=null">
+				TEACHER_ID=#{teacherID}
+			</if>
+		</where>
+	</select>
+	<select id="teacherLogin" parameterType="Map" resultType="Teacher">
+		select TEACHER_ID teacherID,
+				TEACHER_NAME teacherName,
+				TEACHER_ACCOUNT teacherAccount,
+				TEACHER_PWD teacherPwd,
+				TEACHER_SEX teacherSex,
+				TEACHER_MAJOR teacherMajor,
+				TEACHER_DEPATMENT teacherDepatment,
+				TEACHER_PHONE teacherPhone,
+				TEACHER_EMAIL teacherEmail,
+				TEACHER_ROLE teacherRole,
+				TEACHER_PIC teacherPic,
+				TEACHER_IS_DELETE teacherIsDelete,
+				TEACHER_BAK1 teacherBak1,
+				TEACHER_BAK2 teacherBak2,
+				TEACHER_BAK3 teacherBak3 
+		from t_teacher 
+		where TEACHER_ACCOUNT=#{account} and TEACHER_PWD=#{password}
+	</select>
+</mapper>

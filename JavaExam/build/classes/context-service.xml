@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+		
+	<bean id="teacherServiceImpl" class="com.exam.service.impl.TeacherServiceImpl">
+		<property name="questionDAOImpl" ref="questionDAOImpl"></property>
+		<property name="paperDAOImpl" ref="paperDAOImpl"></property>
+		<property name="paperDetailDAOImpl" ref="paperDetailDAOImpl"></property>
+		<property name="teacherDAOImpl" ref="teacherDAOImpl"></property>
+		<property name="scoreDAOImpl" ref="scoreDAOImpl"></property>
+		<property name="subjectinfoDAOImpl" ref="subjectinfoDAOImpl"></property>
+		<property name="studentDAOImpl" ref="studentDAOImpl"></property>
+		<property name="majorDAOImpl" ref="majorDAOImpl"></property>
+		<property name="cardDAOImpl" ref="cardDAOImpl"></property>
+	</bean>
+	<bean id="studentServiceImpl" class="com.exam.service.impl.StudentServiceImpl">
+		<property name="studentDAOImpl" ref="studentDAOImpl"></property>
+		<property name="paperDetailDAOImpl" ref="paperDetailDAOImpl"></property>
+		<property name="scoreDAOImpl" ref="scoreDAOImpl"></property>
+		<property name="subjectinfoDAOImpl" ref="subjectinfoDAOImpl"></property>
+		<property name="teacherDAOImpl" ref="teacherDAOImpl"></property>
+		<property name="paperDAOImpl" ref="paperDAOImpl"></property>
+		<property name="cardDAOImpl" ref="cardDAOImpl"></property>
+		<property name="majorDAOImpl" ref="majorDAOImpl"></property>
+		<property name="cardDetailDAOImpl" ref="cardDetailDAOImpl"></property>
+	</bean>
+</beans>
+

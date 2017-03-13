@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.impl.CardDAO">
+<insert id="insertOne" parameterType="Card"  useGeneratedKeys="true" keyProperty="cardID">
+		INSERT INTO 
+		T_CARD(PAPER_ID,STUDENT_ID,TEACHER_ID,CARD_STATUS,CARD_SCORE,CARD_BAK1,CARD_BAK2,CARD_BAK3) 
+		values(#{paperID},#{studentID},#{teacherID},#{cardStatus},#{cardScore},#{cardbak1},#{cardbak2},#{cardbak3})
+	</insert>
+
+	<select id="SelectOne" parameterType="map" resultType="Card">
+		SELECT CARD_ID cardID,
+		PAPER_ID paperID,
+		STUDENT_ID studentID,
+		TEACHER_ID teacherID,
+		CARD_STATUS cardStatus,
+		CARD_SCORE cardScore,
+		CARD_BAK1 cardbak1,
+		CARD_BAK2 cardbak2,
+		CARD_BAK3 cardbak3
+		FROM T_CARD
+		<trim  prefix="where" prefixOverrides="and|or">
+			<if test="cardID!=null">
+				CARD_ID=#{cardID}
+			</if>
+			<if test="paperID!=null">
+				AND PAPER_ID=#{paperID}
+			</if>
+			<if test="studentID!=null">
+				AND STUDENT_ID=#{studentID}
+			</if>
+		</trim>
+	</select>
+
+	<select id="selectList" parameterType="map" resultType="Card">
+		SELECT
+		CARD_ID cardID,
+		PAPER_ID paperID,
+		STUDENT_ID studentID,
+		TEACHER_ID
+		teacherID,
+		CARD_STATUS cardStatus,
+		CARD_SCORE cardScore,
+		CARD_BAK1
+		cardbak1,
+		CARD_BAK2 cardbak2,
+		CARD_BAK3 cardbak3
+		FROM t_card 
+		<where>
+			<if test="cardID!=null">
+				CARD_ID=#{cardID}
+			</if>
+			<if test="studentID!=null">
+				AND STUDENT_ID=#{studentID}
+			</if>
+			<if test="teacherID!=null">
+				AND TEACHER_ID=#{teacherID}
+			</if>
+		</where>
+	</select>
+	<select id="scoreRank" parameterType="map" resultType="Card">
+		SELECT
+		CARD_ID cardID,
+		PAPER_ID paperID,
+		STUDENT_ID studentID,
+		TEACHER_ID teacherID,
+		CARD_STATUS cardStatus,
+		CARD_SCORE cardScore,
+		CARD_BAK1
+		cardbak1,
+		CARD_BAK2 cardbak2,
+		CARD_BAK3 cardbak3
+		FROM t_card
+		<where>
+			<if test="cardID!=null">
+				CARD_ID=#{cardID}
+			</if>
+			<if test="studentID!=null">
+				AND STUDENT_ID=#{studentID}
+			</if>
+			<if test="teacherID!=null">
+				AND TEACHER_ID=#{teacherID}
+			</if>
+			<if test="paperID!=null">
+				AND PAPER_ID=#{paperID}
+			</if>
+		</where>
+		ORDER BY CARD_SCORE DESC
+	</select>
+</mapper>

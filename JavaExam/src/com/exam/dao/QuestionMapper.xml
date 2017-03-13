@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.QuestionDAO">
+	<select id="selectOne" parameterType="Map" resultType="Question">
+		SELECT
+		QUESTION_ID questionID,
+		SUB_ID subID,
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_DIFFICULTY questionDifficulty,
+		QUESTION_STEM questionStem,
+		QUESTION_ANSWERA questionAnswerA,
+		QUESTION_ANSWERB questionAnswerB,
+		QUESTION_ANSWERC questionAnswerC,
+		QUESTION_ANSWERD questionAnswerD,
+		QUESTION_ANSWERE questionAnswerE,
+		QUESTION_RIGHTANSWER questionRightAnswer,
+		QUESTION_SCORE questionScore,
+		QUESTION_ISAUDITED questionIsAudited,
+		QUESTION_AUTHOR questionAuthor,
+		QUESTION_AUDITOR questionAuditor,
+		QUESTION_AUDITDATE questionAuditDate,
+		QUESTION_SETDATE questionSetDate,
+		QUESTION_MEDIA questionMedia,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak3
+		FROM
+		T_QUESTION
+		WHERE QUESTION_ID=#{questionID}
+	</select>
+
+
+
+	<select id="selectAll"  resultType="Question">
+		SELECT
+		QUESTION_ID questionID,
+		SUB_ID subID,
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_DIFFICULTY questionDifficulty,
+		QUESTION_STEM questionStem,
+		QUESTION_ANSWERA questionAnswerA,
+		QUESTION_ANSWERB questionAnswerB,
+		QUESTION_ANSWERC questionAnswerC,
+		QUESTION_ANSWERD questionAnswerD,
+		QUESTION_ANSWERE questionAnswerE,
+		QUESTION_RIGHTANSWER questionRightAnswer,
+		QUESTION_SCORE questionScore,
+		QUESTION_ISAUDITED questionIsAudited,
+		QUESTION_AUTHOR questionAuthor,
+		QUESTION_AUDITOR questionAuditor,
+		QUESTION_AUDITDATE questionAuditDate,
+		QUESTION_SETDATE questionSetDate,
+		QUESTION_MEDIA questionMedia,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak3
+		FROM
+		T_QUESTION
+	</select>
+
+
+	<select id="selectQueTwo" parameterType="Map" resultType="Question">
+		SELECT
+		QUESTION_ID questionID,
+		SUB_ID subID,
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_DIFFICULTY questionDifficulty,
+		QUESTION_STEM questionStem,
+		QUESTION_ANSWERA questionAnswerA,
+		QUESTION_ANSWERB questionAnswerB,
+		QUESTION_ANSWERC questionAnswerC,
+		QUESTION_ANSWERD questionAnswerD,
+		QUESTION_ANSWERE questionAnswerE,
+		QUESTION_RIGHTANSWER questionRightAnswer,
+		QUESTION_SCORE questionScore,
+		QUESTION_ISAUDITED questionIsAudited,
+		QUESTION_AUTHOR questionAuthor,
+		QUESTION_AUDITOR questionAuditor,
+		QUESTION_AUDITDATE questionAuditDate,
+		QUESTION_SETDATE questionSetDate,
+		QUESTION_MEDIA questionMedia,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak3
+		FROM
+		T_QUESTION
+		WHERE QUESTION_SCORE=2
+		limit #{currentTwo},10
+	</select>
+
+
+	<select id="selectQueFour" parameterType="Map" resultType="Question">
+		SELECT
+		QUESTION_ID questionID,
+		SUB_ID subID,
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_DIFFICULTY questionDifficulty,
+		QUESTION_STEM questionStem,
+		QUESTION_ANSWERA questionAnswerA,
+		QUESTION_ANSWERB questionAnswerB,
+		QUESTION_ANSWERC questionAnswerC,
+		QUESTION_ANSWERD questionAnswerD,
+		QUESTION_ANSWERE questionAnswerE,
+		QUESTION_RIGHTANSWER questionRightAnswer,
+		QUESTION_SCORE questionScore,
+		QUESTION_ISAUDITED questionIsAudited,
+		QUESTION_AUTHOR questionAuthor,
+		QUESTION_AUDITOR questionAuditor,
+		QUESTION_AUDITDATE questionAuditDate,
+		QUESTION_SETDATE questionSetDate,
+		QUESTION_MEDIA questionMedia,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak3
+		FROM
+		T_QUESTION
+		WHERE QUESTION_SCORE=4
+		limit #{currentFour},8
+	</select>
+
+	<select id="selectQueSix" parameterType="Map" resultType="Question">
+		SELECT
+		QUESTION_ID questionID,
+		SUB_ID subID,
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_DIFFICULTY questionDifficulty,
+		QUESTION_STEM questionStem,
+		QUESTION_ANSWERA questionAnswerA,
+		QUESTION_ANSWERB questionAnswerB,
+		QUESTION_ANSWERC questionAnswerC,
+		QUESTION_ANSWERD questionAnswerD,
+		QUESTION_ANSWERE questionAnswerE,
+		QUESTION_RIGHTANSWER questionRightAnswer,
+		QUESTION_SCORE questionScore,
+		QUESTION_ISAUDITED questionIsAudited,
+		QUESTION_AUTHOR questionAuthor,
+		QUESTION_AUDITOR questionAuditor,
+		QUESTION_AUDITDATE questionAuditDate,
+		QUESTION_SETDATE questionSetDate,
+		QUESTION_MEDIA questionMedia,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak3
+		FROM
+		T_QUESTION
+		WHERE QUESTION_SCORE=6
+		limit #{currentSix},8
+	</select>
+	<select id="upadteQuestion" parameterType="map">
+		UPDATE T_QUESTION 
+		SET 
+		QUESTION_TYPE_ID=#{questionTypeID},
+		QUESTION_DIFFICULTY=#{questionDifficulty},
+		QUESTION_SCORE=#{questionScore},
+		QUESTION_ISAUDITED=#{questionIsAudited},
+		QUESTION_AUTHOR=#{questionAuthor},
+		QUESTION_AUDITOR=#{questionAuditor},
+		QUESTION_STEM=#{questionStem},
+		QUESTION_ANSWERA=#{questionAnswerA},
+		QUESTION_ANSWERB=#{questionAnswerB},
+		QUESTION_ANSWERC=#{questionAnswerC},
+		QUESTION_ANSWERD=#{questionAnswerD},
+		QUESTION_ANSWERE=#{questionAnswerE},
+		QUESTION_RIGHTANSWER=#{questionRightAnswer}
+		WHERE QUESTION_ID=#{questionID}
+	</select>
+</mapper>

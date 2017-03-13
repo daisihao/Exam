@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.CardDetailDAO">
+	<select id="selectOne" parameterType="map" resultType="CardDetail">
+		SELECT
+		CARD_DETAIL_ID cardDetailID,
+		CARD_ID cardID,
+		CARD_ANSWER cardAnswer,
+		TRUE_ANSWER trueAnswer
+		FROM
+		T_CARD_DETAIL 
+		<where>
+			<if test="cardDetailID!=null">
+				CARD_DETAIL_ID=#{cardDetailID}
+			</if>
+			<if test="trueAnswer!=null">
+				AND TRUE_ANSWER=#{trueAnswer}
+			</if>
+			<if test="cardID!=null">
+				AND CARD_ID=#{cardID}
+			</if>
+		</where>
+	</select>
+	<!-- 将学生答题答案插入答题卡详细表 -->
+	<insert id="batchInsert" parameterType="list">
+		INSERT INTO T_CARD_DETAIL (CARD_ID,CARD_ANSWER,TRUE_ANSWER) VALUES
+		<foreach collection="list" item="ele" separator=",">
+			(#{ele.CARD_ID},#{ele.CARD_ANSWER},#{ele.TRUE_ANSWER})
+		</foreach>
+	</insert>
+</mapper>

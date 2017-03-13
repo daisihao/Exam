@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="teacher" extends="json-default"
+		namespace="/teacher">
+		<action name="createExamPaper" class="teacherAction" method="createExamPaper">
+			<result  name="ok" type="json">
+				<param name="root">questionMap</param>
+			</result>
+		</action>
+		<action name="create2" class="teacherAction" method="create2">
+			<result  name="ok" type="json">
+				<param name="root">selectQuestion2</param>
+			</result>
+		</action>
+		<!-- 教室登录action -->
+		<action name="teacherLogin" class="teacherAction" method="teacherLogin">
+			<result name="ok" type="dispatcher">/index.jsp</result>
+			<result name="no" type="redirect">/login.jsp</result>
+		</action>
+		<!-- 同班成绩表 -->
+		<action name="allScoreByClass" class="teacherAction" method="allScoreByClass">
+			<result  name="ok" type="json">
+				<param name="root">scoreByClassVO</param>
+			</result>
+		</action>
+		<action name="upadteQuestion" class="teacherAction" method="upadteQuestion">
+			<result  name="ok" type="json">
+				<param name="root">allTeacherMap</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="testLibrary" extends="json-default" namespace="/teacher">
+		<action name="searchAll" method="searchAll" class="teacherAction">
+			<result type="json" name="success">
+				<param name="root">selectAll</param>
+			</result>
+		</action>
+		<action name="teacherList" method="teacherList" class="teacherAction">
+			<result type="json" name="success">
+				<param name="root">allTeacherMap</param>
+			</result>
+		</action>
+		<action name="searchAllPaper" method="searchAllPaper" class="teacherAction">
+			<result type="json" name="success">
+				<param name="root">selectAllPaper</param>
+			</result>
+		</action>
+		<!-- 获得所有学生成绩 -->
+		<action name="searchAllScore" method="searchAllScore" class="teacherAction">
+			<result type="json" name="success">
+				<param name="root">scoreVOList</param>
+			</result>
+		</action>
+		<action name="allMajors" method="allMajors" class="teacherAction">
+			<result type="json" name="success">
+				<param name="root">majorVOList</param>
+			</result>
+		</action>
+	</package>
+</struts>

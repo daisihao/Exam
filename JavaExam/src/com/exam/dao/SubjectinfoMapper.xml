@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.SubjectinfoDAO">
+	<select id="selectOne" parameterType="map" resultType="Subjectinfo">
+		SELECT
+		SUB_ID subID,
+		SUB_NAME subName,
+		SUB_BAK1 subBak1,
+		SUB_BAK2 subBak2,
+		SUB_BAK3 subBak3
+		FROM
+		T_SUBJECTINFO
+		<where>
+			<if test="subID!=null">
+				SUB_ID=#{subID}
+			</if>
+		</where>
+	</select>
+</mapper>

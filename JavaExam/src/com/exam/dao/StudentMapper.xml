@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.StudentDAO">
+	<select id="selectOne" parameterType="map" resultType="Student">
+		SELECT
+		STUDENT_ID studentID,
+		STUDENT_NO studentNo,
+		STUDENT_NAME sutdentName,
+		STUDENT_ACCOUNT studentAccount,
+		STUDENT_PWD studentPwd,
+		STUDENT_SEX studentSex,
+		STUDENT_AGE studentAge,
+		STUDENT_PHONE studentPhone,
+		STUDENT_COLLEGE studentCollege,
+		STUDENT_CLASS studentClass,
+		STUDENT_EMAIL studentEmail,
+		STUDENT_ADDRESS studentAddress,
+		STUDENT_PIC studentPic,
+		STUDENT_IS_DELETE studentIsDelete,
+		STUDENT_BAK1 studentBak1,
+		STUDENT_BAK2 studentBak2,
+		STUDENT_BAK3 sudentBak3
+		FROM
+		T_STUDENT 
+		<trim  prefix="where" prefixOverrides="and|or">
+			<if test="studentNo!=null">
+				student_NO=#{studentNo}
+			</if>
+			<if test="account!=null">
+				studentAccount=#{account}
+			</if>
+			<if test="password!=null">
+				studentPwd=#{password}
+			</if>
+			<if test="studentID!=null">
+				STUDENT_ID=#{studentID}
+			</if>
+		</trim>
+		
+	 </select>
+	 <select id="selectAll" parameterType="map" resultType="Student">
+		SELECT
+		STUDENT_ID studentID,
+		STUDENT_NO studentNo,
+		STUDENT_NAME sutdentName,
+		STUDENT_ACCOUNT studentAccount,
+		STUDENT_PWD studentPwd,
+		STUDENT_SEX studentSex,
+		STUDENT_AGE studentAge,
+		STUDENT_PHONE studentPhone,
+		STUDENT_COLLEGE studentCollege,
+		STUDENT_CLASS studentClass,
+		STUDENT_EMAIL studentEmail,
+		STUDENT_ADDRESS studentAddress,
+		STUDENT_PIC studentPic,
+		STUDENT_IS_DELETE studentIsDelete,
+		STUDENT_BAK1 studentBak1,
+		STUDENT_BAK2 studentBak2,
+		STUDENT_BAK3 sudentBak3
+		FROM
+		T_STUDENT 
+		<trim  prefix="where" prefixOverrides="and|or">
+			<if test="studentClass!=null">
+				STUDENT_CLASS=#{studentClass}
+			</if>
+		</trim>
+	 </select>
+	 <select id="studentLogin" parameterType="map" resultType="Student">
+		SELECT
+		STUDENT_ID studentID,
+		STUDENT_NO studentNo,
+		STUDENT_NAME sutdentName,
+		STUDENT_ACCOUNT studentAccount,
+		STUDENT_PWD studentPwd,
+		STUDENT_SEX studentSex,
+		STUDENT_AGE studentAge,
+		STUDENT_PHONE studentPhone,
+		STUDENT_COLLEGE studentCollege,
+		STUDENT_CLASS studentClass,
+		STUDENT_EMAIL studentEmail,
+		STUDENT_ADDRESS studentAddress,
+		STUDENT_PIC studentPic,
+		STUDENT_IS_DELETE studentIsDelete,
+		STUDENT_BAK1 studentBak1,
+		STUDENT_BAK2 studentBak2,
+		STUDENT_BAK3 sudentBak3
+		FROM
+		T_STUDENT 
+		where STUDENT_ACCOUNT=#{account} and STUDENT_PWD=#{password}
+	 </select>
+	 
+	 <update id="loginStatus" parameterType="map">
+	 	UPDATE T_STUDENT SET 
+	 	STUDENT_IS_DELETE =#{studentIsDelete},
+	 	STUDENT_BAK2=#{ip}
+	 	WHERE 
+	 	STUDENT_ACCOUNT=#{studentAccount}
+	 </update>
+	 
+	 <select id="ipCheck" parameterType="map" resultType="int">
+	 	SELECT COUNT(*) FROM T_STUDENT A WHERE A.STUDENT_BAK2=#{ip};
+	 </select>
+	 
+	 <update id="studentChangePwd" parameterType="map">
+	 	UPDATE T_STUDENT SET 
+	 	STUDENT_PWD =#{studentPwd} 
+	 	WHERE 
+	 	STUDENT_ACCOUNT=#{studentAccount}
+	 </update>
+	 
+ 	 <update id="updateStudentDetail" parameterType="map">
+		 UPDATE T_STUDENT
+		 SET 
+		 STUDENT_ACCOUNT=#{studentAccount},
+		 STUDENT_NAME=#{sutdentName},
+		 STUDENT_SEX=#{studentSex},
+		 STUDENT_AGE=#{studentAge},
+		 STUDENT_PHONE=#{studentPhone},
+		 STUDENT_COLLEGE=#{studentCollege},	 
+		 STUDENT_EMAIL=#{studentEmail},
+		 STUDENT_ADDRESS=#{studentAddress}
+		 WHERE 
+		 STUDENT_NO=#{studentNo} 
+	 </update> 
+</mapper>

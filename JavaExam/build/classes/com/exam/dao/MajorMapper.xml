@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.MajorDAO">
+	<select id="selectAll" resultType="Major">
+		select 
+			MAJOR_ID majorID,
+			MAJOR_NAME majorName,
+			MAJOR_DESCRIBE majorDescribe,
+			MAJOR_DEPARTMENT majorDepartment,
+			MAJOR_BAK1 majorBak1,
+			MAJOR_BAK2 majorBak2,
+			MAJOR_BAK3 majorBak3
+		FROM
+			t_major
+	</select>
+	
+	<select id="selectOne" parameterType="Map" resultType="Major">
+		select 
+			MAJOR_ID majorID,
+			MAJOR_NAME majorName,
+			MAJOR_DESCRIBE majorDescribe,
+			MAJOR_DEPARTMENT majorDepartment,
+			MAJOR_BAK1 majorBak1,
+			MAJOR_BAK2 majorBak2,
+			MAJOR_BAK3 majorBak3
+		FROM
+			t_major
+		where MAJOR_NAME =#{majorName}
+	</select>
+	<select id="selectOne2" parameterType="Map" resultType="Major">
+		select 
+			MAJOR_ID majorID,
+			MAJOR_NAME majorName,
+			MAJOR_DESCRIBE majorDescribe,
+			MAJOR_DEPARTMENT majorDepartment,
+			MAJOR_BAK1 majorBak1,
+			MAJOR_BAK2 majorBak2,
+			MAJOR_BAK3 majorBak3
+		FROM
+			t_major
+		where MAJOR_ID = #{majorID}
+	</select>
+</mapper>

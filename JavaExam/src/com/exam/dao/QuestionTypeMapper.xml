@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.dao.QuestionTypeDAO">
+	<select id="selectOne" parameterType="map" resultType="QuestionType">
+		SELECT
+		QUESTION_TYPE_ID questionTypeID,
+		QUESTION_TYPE_NAME questionTypeName,
+		QUESTION_BAK1 questionBak1,
+		QUESTION_BAK2 questionBak2,
+		QUESTION_BAK3 questionBak1
+		FROM
+		T_QUESTION_TYPE
+		<where>
+			<if test="questionTypeID!=null">
+				QUESTION_TYPE_ID=#{questionTypeID}
+			</if>
+		</where>
+	</select>
+</mapper>

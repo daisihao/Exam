@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="student" extends="json-default,struts-default"
+		namespace="/student">
+		<!-- 学生登录action -->
+		<action name="studentLogin" class="studentAction" method="studentLogin">
+			<result name="success" type="dispatcher">/student/student.jsp</result>
+			<result name="no" type="redirect">/login.jsp?abc=1</result><!-- 有人登陆 -->
+			<result name="noo" type="redirect">/login.jsp?abc=2</result><!-- 账户密码错误 -->
+			<result name="ip" type="redirect">/login.jsp?abc=3</result><!-- 一个ip只能登录一个用户 -->
+		</action>
+		<!-- 学生退出action -->
+		<action name="studentExit" class="studentAction" method="studentExit">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+		<action name="selectPaperID" class="studentAction" method="selectPaperID">
+			<result name="success" type="dispatcher">/student/examing.jsp</result>
+		</action>
+		<action name="selectPaper" class="studentAction" method="selectPaper">
+			<result name="success" type="json">
+				<param name="root">qmap</param>
+			</result>
+		</action>
+		<!-- 修改密码 -->
+		<action name="changePwd" class="studentAction" method="studentChangePwd">
+			<result name="success" type="json">
+				<param name="root">pwddata</param>
+			</result>
+		</action>
+
+		<action name="searchStudentPaper" class="studentAction" method="searchStudentPaper">
+			<result name="success" type="json">
+				<param name="root">listPVOA</param>
+			</result>
+		</action>
+		<!-- 查询指定专业考试action -->
+		<action name="searchSomePaper" class="studentAction" method="searchSomePaper">
+			<result name="success">/student/examlist.jsp</result>
+		</action>
+		<action name="insertScore" class="studentAction" method="insertScore">
+			<result name="success" type="json">
+				<param name="root">ScoreMap</param>
+			</result>
+		</action>
+		<action name="updateStudentDetail" class="studentAction" method="updateStudentDetail">
+			<result name="ok" type="json">
+				<param name="root">ScoreMap</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- 学生查成绩action -->
+	<package name="fzx" extends="json-default" namespace="/student">
+		<action name="searchScore" method="searchScore" class="studentAction">
+			<result type="json" name="success">
+				<param name="root">scoreVOList</param>
+			</result>
+		</action>
+		<action name="AllStudent" method="AllStudent" class="studentAction">
+			<result type="json" name="success">
+				<param name="root">allStudentList</param>
+				<!-- <param name="includeProperties"></param> -->
+			</result>
+		</action>
+		<action name="searchCard" method="searchCard" class="studentAction">
+			<result type="json" name="success">
+				<param name="root">cardDetailList</param>
+			</result>
+		</action>
+		<action name="scoreRank" class="studentAction" method="scoreRank">
+			<result type="json" name="success">
+				<param name="root">cardDetailList</param>
+			</result>
+		</action>
+	</package>
+
+</struts>
+
